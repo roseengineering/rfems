@@ -42,7 +42,6 @@ to be modeled.  The name of the STL indicates the type of material that composes
 that solid.  So a file named 'aluminum.stl' will be considered to model a aluminum
 part.  Rfems has preset material names of silver, copper, gold, aluminum, brass,
 steel, port, and air.  The material must start with this name.
-The files are then archived into a zip file and passed to rfems as the input FDTD model.
 
 Anything after this name will be considered a 'material variable'.
 Material variables are key-value pairs separated by an equal sign.
