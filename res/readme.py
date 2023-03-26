@@ -3,13 +3,9 @@
 import os, subprocess 
 
 def run(command, language=''):
-    result = subprocess.run("python3 " + command, shell=True, capture_output=True, text=True)
-    return f"""
-```{language}
-$ {command}
-{result.stdout}\
-```
-"""
+    result = subprocess.run(command, shell=True, capture_output=True, text=True)
+    return f'$ {command}\n{result.stdout.rstrip()}'
+
 
 print(f"""
 
@@ -130,6 +126,7 @@ To run the examples in the repo (optional):
 ```
 python examples/patch.py
 python rfems.py examples/patch.zip --pitch .005 --frequency 2e9 --criteria -40 --threads $(nproc) --farfield
+{ run('unzip -v examples/patch.zip') }
 python examples/showresult.py examples/patch.npz
 ```
 ![](res/patch-model.png)
@@ -143,6 +140,7 @@ python examples/inter.py \\
     --qe1 11.7818 11.7818 \\
     --kij 0.0600168 0.0600168 \\
     --freq 1.296e+09 --a 1 --b 3
+{ run('unzip -v examples/inter.zip') }
 python rfems.py examples/inter.zip --freq 1.296e+09 --span 4.4e+08 --line 50 --threads 6 --pitch 0.001
 python examples/showresult.py examples/inter.npz
 ```
@@ -151,7 +149,9 @@ python examples/showresult.py examples/inter.npz
 
 ## Usage
 
-{ run("rfems.py --help") }
+```
+{ run("python rfems.py --help") }
+```
 
 """)
 
