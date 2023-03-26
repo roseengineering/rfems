@@ -47,7 +47,7 @@ Anything after this name will be considered a 'material variable'.
 Material variables are key-value pairs separated by an equal sign.
 To use a nonpreset material, with specific values for conductance and dielectic permittivity, use the
 material variables kappa and epsilon.  For example, if your material has a conductance of 44.3e6
-name your file 'kappa=44.3e6.stl'.  Otherwise, if no preset is used or kappa or epsilon variables
+name your file 'kappa=44.3e6.stl'.  Otherwise, if no preset is used or no kappa or epsilon variables
 are set, the material will be considered a perfect conductor, or PEC.
 
 The port material is a special case.  Its STL model creates a lumped port in
