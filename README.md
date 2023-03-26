@@ -18,7 +18,7 @@ by FEKO and HFSS.  Specifically, I wanted to design and optimize cavity filters.
 RSGB has a book called Microwave Knowhow which has a section
 on physically building such filters.   The MYJ Microwave filters
 book has a section (11.4) on physically designing microwave filters 
-one symmetric section at a time to get correct coupling.  
+one symmetric section at a time to get correct coupling.
 Nevertheless, despite the risk of falling into the trap of simulating instead of building,
 learning FDTD seemed a better alternative to a constructing a machine shop.
 
