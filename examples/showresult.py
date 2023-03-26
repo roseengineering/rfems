@@ -58,9 +58,12 @@ def plot_pattern(phi, theta, E, Dmax, name):
 
 def main(filename):
     res = loadz(filename)
+
     f = res.f
     s = res.s
+    z = res.z
     plot_sparameters(f, s)
+
     if hasattr(res, 'Dmax'):
         phi = res.phi
         theta = res.theta

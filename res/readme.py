@@ -90,7 +90,7 @@ is needed.  To view the complete model use the --show option.
 
 After each simulation the s-parameter result is written out to a .npz numpy formatted
 data file.  The s parameters are in the 's' variable, the frequency points are in
-the 'f' variable.  The 'z' variable is set to value of the --line option (at the moment).
+the 'f' variable.  The 'z' variable is an array of each port's characters impedance.
 
 ## Antenna Far Field Support
 

@@ -389,7 +389,6 @@ def smooth_mesh(mesh):
 def main():
     input_filename = os.path.abspath(args.input_filename[0])
     output_filename = os.path.abspath(args.output_filename or input_filename)
-    line = args.line
 
     with tempfile.TemporaryDirectory() as tempdir:
         tempdir = os.path.realpath(tempdir)
@@ -398,6 +397,7 @@ def main():
         models = unzip_models(input_filename, mod_path)
         port_start, port_stop, nport = get_simports(models)
         frequency = get_frequencies()
+        z = [ get_zo(name) for name in models.keys() if is_port(name) ]
         s = np.zeros((len(frequency), nport, nport), dtype=np.complex128)
         ff = {}
 
@@ -425,7 +425,7 @@ def main():
             if args.farfield:
                 ff = calc_radiation(sim_path, s, n, nf2ff)
 
-    save_results(output_filename, f=frequency, s=s, z=line, ff=ff)
+    save_results(output_filename, f=frequency, s=s, z=z, ff=ff)
     if is_applesilicon():
         os.kill(os.getpid(), 9)
 
