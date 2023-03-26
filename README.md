@@ -107,10 +107,10 @@ To run rfems:
 2. openEMS python libraries ($ apt-get install python3-openems)
 3. numpy ($ pip install numpy)
 
-To run the examples in the repo:
+To run the examples in the repo (optional):
 
-1. solidpython2 (optional) ($ pip install solidpython2)
-2. openscad (optional) ($ apt-get install openscad)
+1. solidpython2 ($ pip install solidpython2)
+2. openscad ($ apt-get install openscad)
 
 ## Example
 
