@@ -29,8 +29,7 @@ adjust, for example, coupling distances and such of 3D models of cavity filters.
 And since openEMS can import either STL or PLY formated models, I picked STL as the
 natural format.  (Only ascii STL models are supported by rfems.  Binary STL models do not
 provide a fine enough resolution).  The examples provided in the repo use the
-solidpython2 library and openscad to create the STL files. The files are then archived
-into a zip file and passed to rfems as the input FDTD model.
+solidpython2 library and openscad to create the STL files.
 
 Another reason I created rfems was to test and validate my other repo called rffdtd.
 Rffdtd was my first attempt at designing cavity filters using FDTD.  It also influenced
@@ -42,7 +41,8 @@ To create a simulation, generate a STL for every material or solid that you want
 to be modeled.  The name of the STL indicates the type of material that composes
 that solid.  So a file named 'aluminum.stl' will be considered to model a aluminum
 part.  Rfems has preset material names of silver, copper, gold, aluminum, brass,
-steel, port, and air.  The material must start with this name.  
+steel, port, and air.  The material must start with this name.
+The files are then archived into a zip file and passed to rfems as the input FDTD model.
 
 Anything after this name will be considered a 'material variable'.
 Material variables are key-value pairs separated by an equal sign.
