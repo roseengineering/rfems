@@ -127,8 +127,8 @@ python examples/inter.py     --rod 0.0006875 -0.001875 0.0006875     --sep 0.000
 python rfems.py examples/inter.zip --freq 1.296e+09 --span 4.4e+08 --line 50 --threads 6 --pitch 0.001
 python examples/showresult.py examples/inter.npz
 ```
-![](res/inter-model.png)
-![](res/inter-pattern.png)
+![](res/filter-model.png)
+![](res/filter-pattern.png)
 
 ## Usage
 

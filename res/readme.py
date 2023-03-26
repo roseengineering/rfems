@@ -146,8 +146,8 @@ python examples/inter.py \
 python rfems.py examples/inter.zip --freq 1.296e+09 --span 4.4e+08 --line 50 --threads 6 --pitch 0.001
 python examples/showresult.py examples/inter.npz
 ```
-![](res/inter-model.png)
-![](res/inter-pattern.png)
+![](res/filter-model.png)
+![](res/filter-pattern.png)
 
 ## Usage
 
