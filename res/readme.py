@@ -136,7 +136,6 @@ python examples/showresult.py examples/patch.npz
 ![](res/patch-pattern.png)
 
 ```
-# a 
 python examples/inter.py \
     --rod 0.0006875 -0.001875 0.0006875 \
     --sep 0.0008125 0.0008125 \
