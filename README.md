@@ -23,16 +23,17 @@ Nevertheless, despite the risk of falling into the trap of simulating instead of
 learning FDTD seemed a better alternative to a constructing a machine shop.
 
 To parametricly design and optimize a FDTD model without
-FEKO or HFSS, I turned to Python and other common 3D printing tools.  
+FEKO or HFSS, I turned to Python and other common 3D printing tools.
 Python has code for creating 3D models, letting me parametrically
 adjust, for example, coupling distances and such of 3D models of cavity filters.
 And since openEMS can import either STL or PLY formated models, I picked STL as the
 natural format.  (Only ascii STL models are supported by rfems.  Binary STL models do not
 provide a fine enough resolution).  The examples provided in the repo use the
-solidpython2 library and openscad to create the STL files.
+solidpython2 library and openscad to create the STL files. The files are then archived
+into a zip file and passed to rfems as the input FDTD model.
 
 Another reason I created rfems was to test and validate my other repo called rffdtd.
-rffdtd was my first attempt at designing cavity filters using FDTD.  It also influenced
+Rffdtd was my first attempt at designing cavity filters using FDTD.  It also influenced
 the design of this software wrapper around openEMS.
 
 ## How To Create a OpenEMS Simulation Using Rfems
