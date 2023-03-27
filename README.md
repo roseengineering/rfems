@@ -70,7 +70,7 @@ to check.
 
 To set the priority of the material use the material variable 'priority'.  For example
 to set the priority of an aluminum STL model to 10 use, 'aluminum priority=10'.  The
-default priority for materials is 0, the lowest priority.  For example, a conductive material 
+default priority for materials is 0, the lowest priority.  A conductive material 
 lying on top of a substrate material should have a higher priority set, see patch.py.
 
 All these models must be then zipped up into a single zip file.  This zip file is
