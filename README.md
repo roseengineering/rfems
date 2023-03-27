@@ -121,11 +121,11 @@ $ unzip -v examples/patch.zip
 Archive:  examples/patch.zip
  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
 --------  ------  ------- ---- ---------- ----- --------  ----
-    1719  Defl:N      219  87% 1980-01-01 00:00 25ac1329  sim_box-air.stl
-    1737  Defl:N      227  87% 1980-01-01 00:00 5c731105  patch-pec priority=10.stl
-    1773  Defl:N      226  87% 1980-01-01 00:00 c8c5ab3c  ground-pec priority=10.stl
-    1719  Defl:N      222  87% 1980-01-01 00:00 c798422e  substrate-epsilon=3.38 kappa=0.000460693.stl
-    2025  Defl:N      233  89% 1980-01-01 00:00 8882aac7  port z 1.stl
+    1719  Defl:N      219  87% 01-01-1980 00:00 25ac1329  sim_box-air.stl
+    1737  Defl:N      227  87% 01-01-1980 00:00 5c731105  patch-pec priority=10.stl
+    1773  Defl:N      226  87% 01-01-1980 00:00 c8c5ab3c  ground-pec priority=10.stl
+    1719  Defl:N      222  87% 01-01-1980 00:00 c798422e  substrate-epsilon=3.38 kappa=0.000460693.stl
+    2025  Defl:N      233  89% 01-01-1980 00:00 8882aac7  port z 1.stl
 --------          -------  ---                            -------
     8973             1127  87%                            5 files
 $ python examples/showresult.py examples/patch.npz
@@ -145,19 +145,19 @@ $ unzip -v examples/inter.zip
 Archive:  examples/inter.zip
  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
 --------  ------  ------- ---- ---------- ----- --------  ----
-    4185  Defl:N      352  92% 1980-01-01 00:00 3efcdfe3  box tops-aluminum priority=10.stl
-    4185  Defl:N      344  92% 1980-01-01 00:00 a4224975  box edges-aluminum priority=10.stl
-    4149  Defl:N      343  92% 1980-01-01 00:00 5913f978  box lids-aluminum priority=10.stl
-    6563  Defl:N      542  92% 1980-01-01 00:00 2041be11  rods1-aluminum priority=10.stl
-    2043  Defl:N      241  88% 1980-01-01 00:00 ecb260da  tap1-copper priority=5.stl
-    2043  Defl:N      235  89% 1980-01-01 00:00 ae74f4e6  port x 1.stl
-    2973  Defl:N      332  89% 1980-01-01 00:00 5afe1832  screw1-aluminum priority=10.stl
-    6533  Defl:N      516  92% 1980-01-01 00:00 9c212e17  rods2-aluminum priority=10.stl
-    3005  Defl:N      332  89% 1980-01-01 00:00 9b902c47  screw2-aluminum priority=10.stl
-    6455  Defl:N      540  92% 1980-01-01 00:00 174476f7  rods3-aluminum priority=10.stl
-    2007  Defl:N      240  88% 1980-01-01 00:00 b91a9446  tap2-copper priority=5.stl
-    2007  Defl:N      235  88% 1980-01-01 00:00 7bb68587  port x 2.stl
-    2925  Defl:N      329  89% 1980-01-01 00:00 2af39f8c  screw3-aluminum priority=10.stl
+    4185  Defl:N      352  92% 01-01-1980 00:00 3efcdfe3  box tops-aluminum priority=10.stl
+    4185  Defl:N      344  92% 01-01-1980 00:00 a4224975  box edges-aluminum priority=10.stl
+    4149  Defl:N      343  92% 01-01-1980 00:00 5913f978  box lids-aluminum priority=10.stl
+    6563  Defl:N      542  92% 01-01-1980 00:00 2041be11  rods1-aluminum priority=10.stl
+    2043  Defl:N      241  88% 01-01-1980 00:00 ecb260da  tap1-copper priority=5.stl
+    2043  Defl:N      235  89% 01-01-1980 00:00 ae74f4e6  port x 1.stl
+    2973  Defl:N      332  89% 01-01-1980 00:00 5afe1832  screw1-aluminum priority=10.stl
+    6533  Defl:N      516  92% 01-01-1980 00:00 9c212e17  rods2-aluminum priority=10.stl
+    3005  Defl:N      332  89% 01-01-1980 00:00 9b902c47  screw2-aluminum priority=10.stl
+    6455  Defl:N      540  92% 01-01-1980 00:00 174476f7  rods3-aluminum priority=10.stl
+    2007  Defl:N      240  88% 01-01-1980 00:00 b91a9446  tap2-copper priority=5.stl
+    2007  Defl:N      235  88% 01-01-1980 00:00 7bb68587  port x 2.stl
+    2925  Defl:N      329  89% 01-01-1980 00:00 2af39f8c  screw3-aluminum priority=10.stl
 --------          -------  ---                            -------
    49073             4581  91%                            13 files
 $ python rfems.py examples/inter.zip --freq 1.296e+09 --span 4.4e+08 --line 50 --threads 6 --pitch 0.001
@@ -170,48 +170,7 @@ $ python examples/showresult.py examples/inter.npz
 
 ```
 $ python rfems.py --help
-usage: rfems.py [-h] [--pitch PITCH] [--frequency FREQ] [--span SPAN]
-                [--points POINTS] [--start START] [--stop STOP] [--line LINE]
-                [--farfield] [--dphi DPHI] [--dtheta DTHETA] [--nominimum]
-                [--criteria CRITERIA] [--average] [--verbose VERBOSE]
-                [--threads THREADS] [--show-model] [--dump-pec]
-                input_filename [output_filename]
 
-positional arguments:
-  input_filename       input zip file of STL models
-  output_filename      s-parameter and farfield .npz output file (default:
-                       None)
-
-optional arguments:
-  -h, --help           show this help message and exit
-  --pitch PITCH        length of a uniform yee cell side (m) (default: 0.001)
-  --frequency FREQ     center simulation frequency (Hz) (default: None)
-  --span SPAN          simulation span, -20dB passband ends (Hz) (default:
-                       None)
-  --points POINTS      measurement frequency points, set to 1 for center
-                       frequency (default: 1000)
-  --start START        first port to excite, starting from 1 (default: None)
-  --stop STOP          last port to excite, starting from 1 (default: None)
-  --line LINE          default characteristic impedance of ports (default: 50)
-
-farfield options:
-  --farfield           generate free-space farfield radiation patterns
-                       (default: False)
-  --dphi DPHI          azimuth increment (degree) (default: 2)
-  --dtheta DTHETA      elevation increment (degree) (default: 2)
-  --nominimum          do not find frequency of least VWSR (default: False)
-
-openems options:
-  --criteria CRITERIA  end criteria, eg -60 (dB) (default: None)
-  --average            use cell material averaging (default: False)
-  --verbose VERBOSE    openems verbose setting (default: 0)
-  --threads THREADS    number of threads to use, 0 for all (default: 0)
-
-debugging options:
-  --show-model         run AppCSXCAD on input model, no simulation (default:
-                       False)
-  --dump-pec           generate PEC dump file and run ParaView on it (default:
-                       False)
 ```
 
 ## Notes
