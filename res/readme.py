@@ -35,8 +35,8 @@ To parametricly design and optimize a FDTD model without
 FEKO or HFSS, I turned to Python and other common 3D printing tools.
 Python has code for creating 3D models, letting me parametrically
 adjust, for example, coupling distances and such of 3D models of cavity filters.
-And since openEMS can import either STL or PLY formated models, I picked STL as the
-natural format.  (Only ascii STL models are supported by rfems.  Binary STL models do not
+And since openEMS can import either STL or PLY formatted models, I picked STL as the
+natural format.  (Only ASCII STL models are supported by rfems.  Binary STL models do not
 provide a fine enough resolution).  The examples provided in the repo use the
 solidpython2 library and openscad to create the STL files.
 
@@ -60,8 +60,8 @@ name your file 'kappa=44.3e6.stl'.  Otherwise, if no preset is used or no kappa 
 are set, the material will be considered a perfect conductor, or PEC.
 
 The port material is a special case.  Its STL model creates a lumped port in
-openEMS.  The format of the port material is 'port {{field direction}} {{port number}}' where
-direction is either x, y, or z and port number starts from 1.
+openEMS.  The format of the port material is 'port {{polarity}} {{port number}}' where
+polarity is either x, y, or z and port number starts from 1.
 The lumped port's impedance defaults to the value provided
 through the --line option.  Or you can set it directly using the 'zo' material
 variable.  For example for a lumped port 1 with an impedance of 75 ohms use 'port x 1 zo=75'.

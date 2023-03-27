@@ -26,8 +26,8 @@ To parametricly design and optimize a FDTD model without
 FEKO or HFSS, I turned to Python and other common 3D printing tools.
 Python has code for creating 3D models, letting me parametrically
 adjust, for example, coupling distances and such of 3D models of cavity filters.
-And since openEMS can import either STL or PLY formated models, I picked STL as the
-natural format.  (Only ascii STL models are supported by rfems.  Binary STL models do not
+And since openEMS can import either STL or PLY formatted models, I picked STL as the
+natural format.  (Only ASCII STL models are supported by rfems.  Binary STL models do not
 provide a fine enough resolution).  The examples provided in the repo use the
 solidpython2 library and openscad to create the STL files.
 
@@ -51,8 +51,8 @@ name your file 'kappa=44.3e6.stl'.  Otherwise, if no preset is used or no kappa 
 are set, the material will be considered a perfect conductor, or PEC.
 
 The port material is a special case.  Its STL model creates a lumped port in
-openEMS.  The format of the port material is 'port {field direction} {port number}' where
-direction is either x, y, or z and port number starts from 1.
+openEMS.  The format of the port material is 'port {polarity} {port number}' where
+polarity is either x, y, or z and port number starts from 1.
 The lumped port's impedance defaults to the value provided
 through the --line option.  Or you can set it directly using the 'zo' material
 variable.  For example for a lumped port 1 with an impedance of 75 ohms use 'port x 1 zo=75'.
@@ -121,11 +121,11 @@ $ unzip -v examples/patch.zip
 Archive:  examples/patch.zip
  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
 --------  ------  ------- ---- ---------- ----- --------  ----
-    1719  Defl:N      219  87% 01-01-1980 00:00 25ac1329  sim_box-air.stl
-    1737  Defl:N      227  87% 01-01-1980 00:00 5c731105  patch-pec priority=10.stl
-    1773  Defl:N      226  87% 01-01-1980 00:00 c8c5ab3c  ground-pec priority=10.stl
-    1719  Defl:N      222  87% 01-01-1980 00:00 c798422e  substrate-epsilon=3.38 kappa=0.000460693.stl
-    2025  Defl:N      233  89% 01-01-1980 00:00 8882aac7  port z 1.stl
+    1719  Defl:N      219  87% 1980-01-01 00:00 25ac1329  sim_box-air.stl
+    1737  Defl:N      227  87% 1980-01-01 00:00 5c731105  patch-pec priority=10.stl
+    1773  Defl:N      226  87% 1980-01-01 00:00 c8c5ab3c  ground-pec priority=10.stl
+    1719  Defl:N      222  87% 1980-01-01 00:00 c798422e  substrate-epsilon=3.38 kappa=0.000460693.stl
+    2025  Defl:N      233  89% 1980-01-01 00:00 8882aac7  port z 1.stl
 --------          -------  ---                            -------
     8973             1127  87%                            5 files
 $ python examples/showresult.py examples/patch.npz
@@ -145,19 +145,19 @@ $ unzip -v examples/inter.zip
 Archive:  examples/inter.zip
  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
 --------  ------  ------- ---- ---------- ----- --------  ----
-    4185  Defl:N      352  92% 01-01-1980 00:00 3efcdfe3  box tops-aluminum priority=10.stl
-    4185  Defl:N      344  92% 01-01-1980 00:00 a4224975  box edges-aluminum priority=10.stl
-    4149  Defl:N      343  92% 01-01-1980 00:00 5913f978  box lids-aluminum priority=10.stl
-    6563  Defl:N      542  92% 01-01-1980 00:00 2041be11  rods1-aluminum priority=10.stl
-    2043  Defl:N      241  88% 01-01-1980 00:00 ecb260da  tap1-copper priority=5.stl
-    2043  Defl:N      235  89% 01-01-1980 00:00 ae74f4e6  port x 1.stl
-    2973  Defl:N      332  89% 01-01-1980 00:00 5afe1832  screw1-aluminum priority=10.stl
-    6533  Defl:N      516  92% 01-01-1980 00:00 9c212e17  rods2-aluminum priority=10.stl
-    3005  Defl:N      332  89% 01-01-1980 00:00 9b902c47  screw2-aluminum priority=10.stl
-    6455  Defl:N      540  92% 01-01-1980 00:00 174476f7  rods3-aluminum priority=10.stl
-    2007  Defl:N      240  88% 01-01-1980 00:00 b91a9446  tap2-copper priority=5.stl
-    2007  Defl:N      235  88% 01-01-1980 00:00 7bb68587  port x 2.stl
-    2925  Defl:N      329  89% 01-01-1980 00:00 2af39f8c  screw3-aluminum priority=10.stl
+    4185  Defl:N      352  92% 1980-01-01 00:00 3efcdfe3  box tops-aluminum priority=10.stl
+    4185  Defl:N      344  92% 1980-01-01 00:00 a4224975  box edges-aluminum priority=10.stl
+    4149  Defl:N      343  92% 1980-01-01 00:00 5913f978  box lids-aluminum priority=10.stl
+    6563  Defl:N      542  92% 1980-01-01 00:00 2041be11  rods1-aluminum priority=10.stl
+    2043  Defl:N      241  88% 1980-01-01 00:00 ecb260da  tap1-copper priority=5.stl
+    2043  Defl:N      235  89% 1980-01-01 00:00 ae74f4e6  port x 1.stl
+    2973  Defl:N      332  89% 1980-01-01 00:00 5afe1832  screw1-aluminum priority=10.stl
+    6533  Defl:N      516  92% 1980-01-01 00:00 9c212e17  rods2-aluminum priority=10.stl
+    3005  Defl:N      332  89% 1980-01-01 00:00 9b902c47  screw2-aluminum priority=10.stl
+    6455  Defl:N      540  92% 1980-01-01 00:00 174476f7  rods3-aluminum priority=10.stl
+    2007  Defl:N      240  88% 1980-01-01 00:00 b91a9446  tap2-copper priority=5.stl
+    2007  Defl:N      235  88% 1980-01-01 00:00 7bb68587  port x 2.stl
+    2925  Defl:N      329  89% 1980-01-01 00:00 2af39f8c  screw3-aluminum priority=10.stl
 --------          -------  ---                            -------
    49073             4581  91%                            13 files
 $ python rfems.py examples/inter.zip --freq 1.296e+09 --span 4.4e+08 --line 50 --threads 6 --pitch 0.001
