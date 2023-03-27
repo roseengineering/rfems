@@ -170,10 +170,51 @@ $ python examples/showresult.py examples/inter.npz
 
 ```
 $ python rfems.py --help
+usage: rfems.py [-h] [--pitch PITCH] [--frequency FREQ] [--span SPAN]
+                [--points POINTS] [--start START] [--stop STOP] [--line LINE]
+                [--farfield] [--dphi DPHI] [--dtheta DTHETA] [--nominimum]
+                [--criteria CRITERIA] [--average] [--verbose VERBOSE]
+                [--threads THREADS] [--show-model] [--dump-pec]
+                input_filename [output_filename]
 
+positional arguments:
+  input_filename       input zip file of STL models
+  output_filename      s-parameter and farfield .npz output file (default:
+                       None)
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --pitch PITCH        length of a uniform yee cell side (m) (default: 0.001)
+  --frequency FREQ     center simulation frequency (Hz) (default: None)
+  --span SPAN          simulation span, -20dB passband ends (Hz) (default:
+                       None)
+  --points POINTS      measurement frequency points, set to 1 for center
+                       frequency (default: 1000)
+  --start START        first port to excite, starting from 1 (default: None)
+  --stop STOP          last port to excite, starting from 1 (default: None)
+  --line LINE          default characteristic impedance of ports (default: 50)
+
+farfield options:
+  --farfield           generate free-space farfield radiation patterns
+                       (default: False)
+  --dphi DPHI          azimuth increment (degree) (default: 2)
+  --dtheta DTHETA      elevation increment (degree) (default: 2)
+  --nominimum          do not find frequency of least VWSR (default: False)
+
+openems options:
+  --criteria CRITERIA  end criteria, eg -60 (dB) (default: None)
+  --average            use cell material averaging (default: False)
+  --verbose VERBOSE    openems verbose setting (default: 0)
+  --threads THREADS    number of threads to use, 0 for all (default: 0)
+
+debugging options:
+  --show-model         run AppCSXCAD on input model, no simulation (default:
+                       False)
+  --dump-pec           generate PEC dump file and run ParaView on it (default:
+                       False)
 ```
 
 ## Notes
 
-Openscad cannot create STL models of planar surfaces.  As a work around, use a very small value for the flat dimension instead of zero.  Rfems flattens all STL files with bounding box dimensions less than or equal to 1e-6 to their planar 2D and 1D box equivalent.  See patch.py.
+Openscad cannot create STL models of planar surfaces.  As a work around, use a very small value for the flat dimension instead of zero.  Rfems flattens all STL files with bounding box dimensions less than or equal to 1e-6 m (or 1e-3 in STL units) to their planar 2D and 1D box equivalent.  See patch.py.
 
