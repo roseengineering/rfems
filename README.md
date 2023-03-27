@@ -74,7 +74,7 @@ default priority for materials is 0, the lowest priority.  A conductive material
 lying on top of a substrate material should have a higher priority set, see patch.py.
 
 All these models must be then zipped up into a single zip file.  This zip file is
-presented to rfems as the complete model for it to simulate.  Nothing else
+presented to rfems as the complete model to simulate.  Nothing else
 is needed.  To view the complete model use the --show option.
 
 ## S-parameter Support
