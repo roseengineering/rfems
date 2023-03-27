@@ -153,6 +153,9 @@ $ python examples/showresult.py examples/inter.npz
 $ { run("python rfems.py --help") }
 ```
 
+## Notes
+
+Openscad cannot create STL models of planar surfaces.  As a work around, use a very small value for the flat dimension instead of zero.  Rfems flattens all STL files with bounding box dimensions less than or equal to 1e-6 to their planar 2D and 1D box equivalent.  See patch.py.
 """)
 
 
