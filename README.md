@@ -9,7 +9,7 @@ This script lets you run an openEMS FDTD simulation
 simply from a collection of STL 3D models.  To use this script you need to
 have openEMS installed as well as its Python API extension.  You 
 will also need a method to generate the STL files that will compose your FDTD model.
-The example models in this repo use Python and openscad to do this.  But you can use whatever you want.
+The example models in this repo use Python and Openscad to do this.  But you can use whatever you want.
 
 ## Why Rfems Was Created
 
@@ -29,7 +29,7 @@ adjust, for example, coupling distances and such of 3D models of cavity filters.
 And since openEMS can import either STL or PLY formatted models, I picked STL as the
 natural format.  (Only ASCII STL models are supported by rfems.  Binary STL models do not
 provide a fine enough resolution).  The examples provided in the repo use the
-solidpython2 library and openscad to create the STL files.
+Solidpython2 library and Openscad to create the STL files.
 
 Another reason I created rfems was to test and validate my other repo called rffdtd.
 Rffdtd was my first attempt at designing cavity filters using FDTD.  It also influenced
@@ -116,7 +116,6 @@ To run the examples in the repo (optional):
 
 ```
 $ python examples/patch.py
-$ python rfems.py examples/patch.zip --pitch .005 --frequency 2e9 --criteria -40 --threads $(nproc) --farfield
 $ unzip -v examples/patch.zip
 Archive:  examples/patch.zip
  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
@@ -128,6 +127,7 @@ Archive:  examples/patch.zip
     2025  Defl:N      233  89% 01-01-1980 00:00 8882aac7  port z 1.stl
 --------          -------  ---                            -------
     8973             1127  87%                            5 files
+$ python rfems.py examples/patch.zip --pitch .005 --frequency 2e9 --criteria -40 --threads $(nproc) --farfield
 $ python examples/showresult.py examples/patch.npz
 ```
 ![](res/patch-model.png)
