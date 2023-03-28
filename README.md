@@ -65,7 +65,7 @@ create separate STL models for each component of the same material, like using
 one STL model for each resonator in a cavity filter.  Sometimes it is 
 even neccessary because of the limitation in openEMS.  For example a enclosure 
 in openEMS must be have its lid, edges, and tops each in a separate file.  For a cup antenna the sides
-of cups must be in a separate STL file than the bottom of the cup.  Using the option --dump
+of cup must be in a separate STL file than the bottom of the cup.  Using the option --dump
 to check.
 
 To set the priority of the material use the material variable 'priority'.  For example
@@ -74,8 +74,7 @@ default priority for materials is 0, the lowest priority.  A conductive material
 lying on top of a substrate material should have a higher priority set, see patch.py.
 
 All these models must be then zipped up into a single zip file.  This zip file is
-presented to rfems as the complete model to simulate.  Nothing else
-is needed.  To view the complete model use the --show option.
+presented to rfems as the complete model to simulate.  To view the complete model use the --show option.
 
 ## S-parameter Support
 
@@ -110,7 +109,8 @@ To run rfems:
 To run the examples in the repo (optional):
 
 1. solidpython2 ($ pip install solidpython2)
-2. openscad ($ apt-get install openscad)
+2. matplotlib ($ pip install matplotlib)
+3. openscad ($ apt-get install openscad)
 
 ## Example
 
@@ -120,11 +120,11 @@ $ unzip -l examples/patch.zip
 Archive:  examples/patch.zip
   Length      Date    Time    Name
 ---------  ---------- -----   ----
-     1719  01-01-1980 00:00   sim_box-air.stl
-     1737  01-01-1980 00:00   patch-pec priority=10.stl
-     1773  01-01-1980 00:00   ground-pec priority=10.stl
-     1719  01-01-1980 00:00   substrate-epsilon=3.38 kappa=0.000460693.stl
-     2025  01-01-1980 00:00   port z 1.stl
+     1719  1980-01-01 00:00   sim_box-air.stl
+     1737  1980-01-01 00:00   patch-pec priority=10.stl
+     1773  1980-01-01 00:00   ground-pec priority=10.stl
+     1719  1980-01-01 00:00   substrate-epsilon=3.38 kappa=0.000460693.stl
+     2025  1980-01-01 00:00   port z 1.stl
 ---------                     -------
      8973                     5 files
 $ python rfems.py examples/patch.zip --pitch .005 --frequency 2e9 --criteria -40 --threads $(nproc) --farfield
@@ -145,19 +145,19 @@ $ unzip -l examples/inter.zip
 Archive:  examples/inter.zip
   Length      Date    Time    Name
 ---------  ---------- -----   ----
-     4185  01-01-1980 00:00   box tops-aluminum priority=10.stl
-     4185  01-01-1980 00:00   box edges-aluminum priority=10.stl
-     4149  01-01-1980 00:00   box lids-aluminum priority=10.stl
-     6563  01-01-1980 00:00   rods1-aluminum priority=10.stl
-     2043  01-01-1980 00:00   tap1-copper priority=5.stl
-     2043  01-01-1980 00:00   port x 1.stl
-     2973  01-01-1980 00:00   screw1-aluminum priority=10.stl
-     6533  01-01-1980 00:00   rods2-aluminum priority=10.stl
-     3005  01-01-1980 00:00   screw2-aluminum priority=10.stl
-     6455  01-01-1980 00:00   rods3-aluminum priority=10.stl
-     2007  01-01-1980 00:00   tap2-copper priority=5.stl
-     2007  01-01-1980 00:00   port x 2.stl
-     2925  01-01-1980 00:00   screw3-aluminum priority=10.stl
+     4185  1980-01-01 00:00   box tops-aluminum priority=10.stl
+     4185  1980-01-01 00:00   box edges-aluminum priority=10.stl
+     4149  1980-01-01 00:00   box lids-aluminum priority=10.stl
+     6563  1980-01-01 00:00   rods1-aluminum priority=10.stl
+     2043  1980-01-01 00:00   tap1-copper priority=5.stl
+     2043  1980-01-01 00:00   port x 1.stl
+     2973  1980-01-01 00:00   screw1-aluminum priority=10.stl
+     6533  1980-01-01 00:00   rods2-aluminum priority=10.stl
+     3005  1980-01-01 00:00   screw2-aluminum priority=10.stl
+     6455  1980-01-01 00:00   rods3-aluminum priority=10.stl
+     2007  1980-01-01 00:00   tap2-copper priority=5.stl
+     2007  1980-01-01 00:00   port x 2.stl
+     2925  1980-01-01 00:00   screw3-aluminum priority=10.stl
 ---------                     -------
     49073                     13 files
 $ python rfems.py examples/inter.zip --freq 1.296e+09 --span 4.4e+08 --line 50 --threads 6 --pitch 0.001

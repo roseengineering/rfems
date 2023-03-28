@@ -74,7 +74,7 @@ create separate STL models for each component of the same material, like using
 one STL model for each resonator in a cavity filter.  Sometimes it is 
 even neccessary because of the limitation in openEMS.  For example a enclosure 
 in openEMS must be have its lid, edges, and tops each in a separate file.  For a cup antenna the sides
-of cups must be in a separate STL file than the bottom of the cup.  Using the option --dump
+of cup must be in a separate STL file than the bottom of the cup.  Using the option --dump
 to check.
 
 To set the priority of the material use the material variable 'priority'.  For example
@@ -83,8 +83,7 @@ default priority for materials is 0, the lowest priority.  A conductive material
 lying on top of a substrate material should have a higher priority set, see patch.py.
 
 All these models must be then zipped up into a single zip file.  This zip file is
-presented to rfems as the complete model to simulate.  Nothing else
-is needed.  To view the complete model use the --show option.
+presented to rfems as the complete model to simulate.  To view the complete model use the --show option.
 
 ## S-parameter Support
 
@@ -119,7 +118,8 @@ To run rfems:
 To run the examples in the repo (optional):
 
 1. solidpython2 ($ pip install solidpython2)
-2. openscad ($ apt-get install openscad)
+2. matplotlib ($ pip install matplotlib)
+3. openscad ($ apt-get install openscad)
 
 ## Example
 
