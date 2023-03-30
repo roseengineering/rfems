@@ -20,31 +20,7 @@ have openEMS installed as well as its Python API extension.  You
 will also need a method to generate the STL files that will compose your FDTD model.
 The example models in this repo use Python and Openscad to do this.  But you can use whatever you want.
 
-## Why Rfems Was Created
-
-I wanted to build parametric FDTD models, just like those created 
-by FEKO and HFSS.  Specifically, I wanted to design and optimize cavity filters.
-RSGB has a book called Microwave Knowhow which has a section
-on physically building such filters.   The MYJ Microwave filters
-book has a section (11.4) on physically designing microwave filters 
-one symmetric section at a time to get correct coupling.
-Nevertheless, despite the risk of falling into the trap of simulating instead of building,
-learning FDTD seemed a better alternative to a constructing a machine shop.
-
-To parametricly design and optimize a FDTD model without
-FEKO or HFSS, I turned to Python and other common 3D printing tools.
-Python has code for creating 3D models, letting me parametrically
-adjust, for example, coupling distances and such of 3D models of cavity filters.
-And since openEMS can import either STL or PLY formatted models, I picked STL as the
-natural format.  (Only ASCII STL models are supported by rfems.  Binary STL models do not
-provide a fine enough resolution).  The examples provided in the repo use the
-Solidpython2 library and Openscad to create the STL files.
-
-Another reason I created rfems was to test and validate my other repo called rffdtd.
-Rffdtd was my first attempt at designing cavity filters using FDTD.  It also influenced
-the design of this software wrapper around openEMS.
-
-## How To Create a OpenEMS Simulation Using Rfems
+## How To Simulation Using Rfems
 
 To create a simulation, generate a STL for every material or solid that you want
 to be modeled.  The name of the STL indicates the type of material that composes
@@ -74,8 +50,7 @@ create separate STL models for each component of the same material, like using
 one STL model for each resonator in a cavity filter.  Sometimes it is 
 even neccessary because of the limitation in openEMS.  For example a enclosure 
 in openEMS must be have its lid, edges, and tops each in a separate file.  For a cup antenna the sides
-of cup must be in a separate STL file than the bottom of the cup.  Using the option --dump
-to check.
+of cup must be in a separate STL file than the bottom of the cup.  Use the option --dump to check.
 
 To set the priority of the material use the material variable 'priority'.  For example
 to set the priority of an aluminum STL model to 10 use, 'aluminum priority=10'.  The
