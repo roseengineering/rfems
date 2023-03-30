@@ -325,24 +325,31 @@ def add_parts(CSX, models):
 
         bbox[0] = start if bbox[0] is None else np.minimum(bbox[0], start)
         bbox[1] = stop if bbox[1] is None else np.maximum(bbox[1], stop)
+
+        # get material
         tag = material.split()[0]
         if tag == 'air':
             continue
-        if args.dump_pec:
+        if args.dump_pec or tag == 'pec':
             options = None
         elif tag in MATERIALS:
             options = MATERIALS[tag]
         else:
             options = get_custom_material(material)
+
+        # set material
         if options:
             mat = CSX.AddMaterial(name, **options)
         else:
-            mat = CSX.AddMetal(name) # pec
+            mat = CSX.AddMetal(name)
+
+        # set color
         if tag in COLORS:
             mat.SetColor(COLORS[tag])
+
+        # set model
         for n in range(3):
             mesh.AddLine('xyz'[n], [ start[n], stop[n] ])
-
         if np.any(np.isclose(stop - start, 0)):
             prim = mat.AddBox(start, stop, priority=priority)
         else:
