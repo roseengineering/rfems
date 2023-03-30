@@ -6,7 +6,7 @@
 # Rfems
 
 This script lets you run an openEMS FDTD simulation
-from a collection of STL 3D models.  To use this script you need to
+from a collection of STL 3D models.  To use the script, first you need to
 have openEMS installed as well as its Python API extension.  You 
 will also need a method to generate the STL files that will compose your FDTD model.
 The example models in this repo use Python and Openscad to do this.  But you can use whatever you want.
