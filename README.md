@@ -95,11 +95,11 @@ $ unzip -l examples/patch.zip
 Archive:  examples/patch.zip
   Length      Date    Time    Name
 ---------  ---------- -----   ----
-     1719  1980-01-01 00:00   sim_box-air.stl
-     1737  1980-01-01 00:00   patch-pec priority=10.stl
-     1773  1980-01-01 00:00   ground-pec priority=10.stl
-     1719  1980-01-01 00:00   substrate-epsilon=3.38 kappa=0.000460693.stl
-     2025  1980-01-01 00:00   port z 1.stl
+     1719  01-01-1980 00:00   sim_box-air.stl
+     1737  01-01-1980 00:00   patch-pec priority=10.stl
+     1773  01-01-1980 00:00   ground-pec priority=10.stl
+     1719  01-01-1980 00:00   substrate-epsilon=3.38 kappa=0.000460693.stl
+     2025  01-01-1980 00:00   port z 1.stl
 ---------                     -------
      8973                     5 files
 $ python rfems.py examples/patch.zip --pitch .005 --frequency 2e9 --criteria -40 --threads $(nproc) --farfield
@@ -120,19 +120,19 @@ $ unzip -l examples/inter.zip
 Archive:  examples/inter.zip
   Length      Date    Time    Name
 ---------  ---------- -----   ----
-     4185  1980-01-01 00:00   box tops-aluminum priority=10.stl
-     4185  1980-01-01 00:00   box edges-aluminum priority=10.stl
-     4149  1980-01-01 00:00   box lids-aluminum priority=10.stl
-     6563  1980-01-01 00:00   rods1-aluminum priority=10.stl
-     2043  1980-01-01 00:00   tap1-copper priority=5.stl
-     2043  1980-01-01 00:00   port x 1.stl
-     2973  1980-01-01 00:00   screw1-aluminum priority=10.stl
-     6533  1980-01-01 00:00   rods2-aluminum priority=10.stl
-     3005  1980-01-01 00:00   screw2-aluminum priority=10.stl
-     6455  1980-01-01 00:00   rods3-aluminum priority=10.stl
-     2007  1980-01-01 00:00   tap2-copper priority=5.stl
-     2007  1980-01-01 00:00   port x 2.stl
-     2925  1980-01-01 00:00   screw3-aluminum priority=10.stl
+     4185  01-01-1980 00:00   box tops-aluminum priority=10.stl
+     4185  01-01-1980 00:00   box edges-aluminum priority=10.stl
+     4149  01-01-1980 00:00   box lids-aluminum priority=10.stl
+     6563  01-01-1980 00:00   rods1-aluminum priority=10.stl
+     2043  01-01-1980 00:00   tap1-copper priority=5.stl
+     2043  01-01-1980 00:00   port x 1.stl
+     2973  01-01-1980 00:00   screw1-aluminum priority=10.stl
+     6533  01-01-1980 00:00   rods2-aluminum priority=10.stl
+     3005  01-01-1980 00:00   screw2-aluminum priority=10.stl
+     6455  01-01-1980 00:00   rods3-aluminum priority=10.stl
+     2007  01-01-1980 00:00   tap2-copper priority=5.stl
+     2007  01-01-1980 00:00   port x 2.stl
+     2925  01-01-1980 00:00   screw3-aluminum priority=10.stl
 ---------                     -------
     49073                     13 files
 $ python rfems.py examples/inter.zip --freq 1.296e+09 --span 4.4e+08 --line 50 --threads 6 --pitch 0.001
@@ -146,7 +146,7 @@ $ python examples/showresult.py examples/inter.npz
 ```
 $ python rfems.py --help
 usage: rfems.py [-h] [--pitch PITCH] [--frequency FREQ] [--span SPAN]
-                [--points POINTS] [--start START] [--stop STOP] [--line LINE]
+                [--points POINTS] [--start PORT] [--stop PORT] [--line LINE]
                 [--farfield] [--dphi DPHI] [--dtheta DTHETA] [--nominimum]
                 [--criteria CRITERIA] [--average] [--verbose VERBOSE]
                 [--threads THREADS] [--show-model] [--dump-pec]
@@ -165,8 +165,8 @@ optional arguments:
                        None)
   --points POINTS      measurement frequency points, set to 1 for center
                        frequency (default: 1000)
-  --start START        first port to excite, starting from 1 (default: None)
-  --stop STOP          last port to excite, starting from 1 (default: None)
+  --start PORT         first port to excite, starting from 1 (default: None)
+  --stop PORT          last port to excite, starting from 1 (default: None)
   --line LINE          default characteristic impedance of ports (default: 50)
 
 farfield options:

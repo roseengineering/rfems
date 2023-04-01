@@ -45,15 +45,18 @@ def parse_args():
 
     parser.add_argument('--pitch', type=float, default=DEFAULT_PITCH,
         help='length of a uniform yee cell side (m)')
-    parser.add_argument('--frequency', type=float, metavar='FREQ',
+    parser.add_argument('--frequency', type=float,
+        metavar='FREQ',
         help='center simulation frequency (Hz)')
     parser.add_argument('--span', type=float, 
         help='simulation span, -20dB passband ends (Hz)')
     parser.add_argument('--points', type=int, default=DEFAULT_POINTS,
         help='measurement frequency points, set to 1 for center frequency')
     parser.add_argument('--start', type=int,
+        metavar='PORT',
         help='first port to excite, starting from 1')
     parser.add_argument('--stop', type=int,
+        metavar='PORT',
         help='last port to excite, starting from 1')
     parser.add_argument('--line', type=float, default=DEFAULT_REFERENCE,
         help='default characteristic impedance of ports')
