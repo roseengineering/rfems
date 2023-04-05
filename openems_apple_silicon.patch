@@ -1,0 +1,28 @@
+# patch for compiling openems with python support on apple silicon
+# also disables the installation of python libraries in --user space
+diff -r -u0 openEMS-Project.orig/CSXCAD/src/CSXCAD_Global.h openEMS-Project/CSXCAD/src/CSXCAD_Global.h
+--- openEMS-Project.orig/CSXCAD/src/CSXCAD_Global.h	2023-01-15 11:20:13
++++ openEMS-Project/CSXCAD/src/CSXCAD_Global.h	2023-01-15 11:20:13
+@@ -35,0 +36 @@
++#include <clocale>
+diff -r -u0 openEMS-Project.orig/fparser/CMakeLists.txt openEMS-Project/fparser/CMakeLists.txt
+--- openEMS-Project.orig/fparser/CMakeLists.txt	2023-01-15 11:20:13
++++ openEMS-Project/fparser/CMakeLists.txt	2023-01-15 11:20:13
+@@ -7,0 +8 @@
++set(CMAKE_INSTALL_NAME_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+diff -r -u0 openEMS-Project.orig/openEMS/FDTD/excitation.cpp openEMS-Project/openEMS/FDTD/excitation.cpp
+--- openEMS-Project.orig/openEMS/FDTD/excitation.cpp	2023-01-15 11:20:13
++++ openEMS-Project/openEMS/FDTD/excitation.cpp	2023-01-15 11:20:13
+@@ -23,0 +24 @@
++#include <clocale> 
+diff -r -u0 openEMS-Project.orig/openEMS/nf2ff/nf2ff.cpp openEMS-Project/openEMS/nf2ff/nf2ff.cpp
+--- openEMS-Project.orig/openEMS/nf2ff/nf2ff.cpp	2023-01-15 11:20:13
++++ openEMS-Project/openEMS/nf2ff/nf2ff.cpp	2023-01-15 11:20:13
+@@ -32,0 +33 @@
++#include <clocale>
+diff -r -u0 openEMS-Project.orig/update_openEMS.sh openEMS-Project/update_openEMS.sh
+--- openEMS-Project.orig/update_openEMS.sh	2023-01-15 11:20:13
++++ openEMS-Project/update_openEMS.sh	2023-01-15 11:20:13
+@@ -154 +154 @@
+-        PY_INST_USER='--user'
++        PY_INST_USER=''
