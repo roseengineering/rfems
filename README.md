@@ -145,48 +145,7 @@ $ python examples/showresult.py examples/inter.npz
 
 ```
 $ python rfems.py --help
-usage: rfems.py [-h] [--pitch PITCH] [--frequency FREQ] [--span SPAN]
-                [--points POINTS] [--start PORT] [--stop PORT] [--line LINE]
-                [--farfield] [--dphi DPHI] [--dtheta DTHETA] [--nominimum]
-                [--criteria CRITERIA] [--average] [--verbose VERBOSE]
-                [--threads THREADS] [--show-model] [--dump-pec]
-                input_filename [output_filename]
 
-positional arguments:
-  input_filename       input zip file of STL models
-  output_filename      s-parameter and farfield .npz output file (default:
-                       None)
-
-optional arguments:
-  -h, --help           show this help message and exit
-  --pitch PITCH        length of a uniform yee cell side (m) (default: 0.001)
-  --frequency FREQ     center simulation frequency (Hz) (default: None)
-  --span SPAN          simulation span, -20dB passband ends (Hz) (default:
-                       None)
-  --points POINTS      measurement frequency points, set to 1 for center
-                       frequency (default: 1000)
-  --start PORT         first port to excite, starting from 1 (default: None)
-  --stop PORT          last port to excite, starting from 1 (default: None)
-  --line LINE          default characteristic impedance of ports (default: 50)
-
-farfield options:
-  --farfield           generate free-space farfield radiation patterns
-                       (default: False)
-  --dphi DPHI          azimuth increment (degree) (default: 2)
-  --dtheta DTHETA      elevation increment (degree) (default: 2)
-  --nominimum          do not find frequency of least VWSR (default: False)
-
-openems options:
-  --criteria CRITERIA  end criteria, eg -60 (dB) (default: None)
-  --average            use cell material averaging (default: False)
-  --verbose VERBOSE    openems verbose setting (default: 0)
-  --threads THREADS    number of threads to use, 0 for all (default: 0)
-
-debugging options:
-  --show-model         run AppCSXCAD on input model, no simulation (default:
-                       False)
-  --dump-pec           generate PEC dump file and run ParaView on it (default:
-                       False)
 ```
 
 ## Notes
