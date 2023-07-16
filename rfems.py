@@ -86,7 +86,6 @@ def parse_args():
         help='run AppCSXCAD on input model, no simulation')
     debug_group.add_argument('--dump-pec', action='store_true', 
         help='generate PEC dump file and run ParaView on it')
-
     return parser.parse_args()
 
 
