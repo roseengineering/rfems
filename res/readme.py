@@ -26,14 +26,26 @@ To create a simulation, generate a STL for every material or solid that you want
 to be modeled.  The name of the STL indicates the type of material that composes
 that solid.  So a file named 'aluminum.stl' will be considered to model a aluminum
 part.  Rfems has preset material names of silver, copper, gold, aluminum, brass,
-steel, pec, port, and air.  The material must start with this name.
+steel, pec, port, and air.   Unknown material names are considered PEC.
+Material names must not have spaces in them.
 
-Anything after this name will be considered a 'material variable'.
+Multiple STL models using the same material
+can be differentiated using labels: prefix the material with a label name and
+then a dash, for example 'tee-aluminum.stl'.  Label names can have spaces in their names.
+
+In fact it is usually much easier to
+create separate STL models for each component of the same material, like using
+one STL model for each resonator in a cavity filter.  Sometimes it is 
+even neccessary because of the limitation in openEMS.  For example a enclosure 
+in openEMS must be have its lid, edges, and tops each in a separate file.  For a cup antenna the sides
+of cup must be in a separate STL file than the bottom of the cup.  Use the option --dump to check.
+
+Anything after this label-material combination is considered a 'material variable'.
 Material variables are key-value pairs separated by an equal sign.
-To use a nonpreset material, with specific values for conductance and dielectic permittivity, use the
-material variables kappa and epsilon.  For example, if your material has a conductance of 44.3e6
-name your file 'kappa=44.3e6.stl'.  Otherwise, if no preset is used or no kappa or epsilon variables
-are set, the material will be considered a perfect conductor, or PEC.
+
+For example to create material with specific values for conductance and dielectic permittivity, 
+use the material variables kappa and epsilon.  For example, if your material has a conductance of 44.3e6
+name your file 'custom kappa=44.3e6.stl'.
 
 The port material is a special case.  Its STL model creates a lumped port in
 openEMS.  The format of the port material is 'port {{polarity}} {{port number}}' where
@@ -42,15 +54,6 @@ The lumped port's impedance defaults to the value provided
 through the --line option.  Or you can set it directly using the 'zo' material
 variable.  For example for a lumped port 1 with an impedance of 75 ohms use 'port x 1 zo=75'.
 The bounding box of the STL model will be used as the lumped port's dimensions.
-
-Multiple STL models using the same material
-can be differentiated using labels: prefix the material with a label name and
-then a dash, for example 'tee-aluminum.stl'.  In fact it is usually much easier to
-create separate STL models for each component of the same material, like using
-one STL model for each resonator in a cavity filter.  Sometimes it is 
-even neccessary because of the limitation in openEMS.  For example a enclosure 
-in openEMS must be have its lid, edges, and tops each in a separate file.  For a cup antenna the sides
-of cup must be in a separate STL file than the bottom of the cup.  Use the option --dump to check.
 
 To set the priority of the material use the material variable 'priority'.  For example
 to set the priority of an aluminum STL model to 10 use, 'aluminum priority=10'.  The
